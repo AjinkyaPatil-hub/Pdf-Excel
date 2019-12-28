@@ -18,4 +18,8 @@ public interface EmployeeService {
 	boolean createExcel(List<Employee> employess, ServletContext context, HttpServletRequest req,
 			HttpServletResponse res);
 
+	Employee getEmployee(int id);
+
+	Employee createOrUpdateEmp(Employee e);
+
 }
