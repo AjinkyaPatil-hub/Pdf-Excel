@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<body>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<h2>All Employees
+<a th:href="@{'/createExcel'}" style="float:right;"> <img th:src="@{/images/excel-png.png}" style="width: 40px;margin:left = 10px; "></a>
+<a th:href="@{'/createPdf'}" style="float:right;"><img th:src="@{/images/pdf-icon.png}" style="width: 40px; margin:left = 10px;"></a>
+</h2>
+<div style="margin-top:20px">
+<table id="employee" class="table table-striped table-bordered" style="width: 100%">
+<thead>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Phone Number</th>
+</tr>
+</thead>
+
+<tbody>
+<tr th:each="employee :${employess}">
+<td th:text="${employee.firstName}">
+<td th:text="${employee.lastName}">
+<td th:text="${employee.phoneNumber}">
+<td th:text="${employee.email}">
+</tbody>
+</table>
+
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+</body>
+</html>
