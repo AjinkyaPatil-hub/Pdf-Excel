@@ -20,4 +20,7 @@ public interface EmployeeService {
 
 	Employee getEmployee(int id);
 
+	Employee createOrUpdateEmp(Employee e);
+
+
 }

@@ -40,11 +40,19 @@ public class EmployeeServiceImpl implements EmployeeService{
 	private EmployeeRepository employeeRepo;
 	
 	@Override
+	public Employee createOrUpdateEmp(Employee e) {
+		 Employee emp = employeeRepo.save(e);
+		return emp;
+	}
+
+	@Override
 	public List<Employee> getAllEmployees() {
+		
 		Iterable<Employee> findAll = employeeRepo.findAll();
 		
 		return (List<Employee>) findAll;
 	}
+
 
 	@Override
 	public Employee getEmployee(int id) {
@@ -277,5 +285,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 			return false;
 		}
 	}
+
+
+	
 	
 }
