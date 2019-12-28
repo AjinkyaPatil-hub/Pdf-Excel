@@ -3,6 +3,7 @@ package com.springboot.pdfexcel.pdfexcel.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,15 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return (List<Employee>) findAll;
 	}
 
+	@Override
+	public Employee getEmployee(int id) {
+		Optional<Employee> employee = employeeRepo.findById(id);
+
+		if(employee.isPresent()) {
+			return employee.get();
+		}
+		return null;
+	}
 	@Override
 	public boolean createPdf(List<Employee> employess, ServletContext context, HttpServletRequest req,HttpServletResponse res) {
 
